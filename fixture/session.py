@@ -29,6 +29,7 @@ class SessionHelper:
         wd = self.app.wd
         return len(wd.find_elements_by_css_selector("ul.breadcrumb a"))> 0
 
+#ф-я возвращает имя залогированного пользователя
     def is_logget_in_as(self):
         wd = self.app.wd
         #return self.get_logget_user() == username
@@ -37,8 +38,6 @@ class SessionHelper:
             return username_text[0:username_text.find("(") - 1]
         else:
             return username_text
-        #return wd.find_element_by_xpath("//div/div[1]/form/b").text == "(%s)" % username
-        #return wd.find_element_by_xpath("//div/div[1]/form/b").text =="(" + username +")"
 
     def get_logget_user(self):
         wd = self.app.wd
