@@ -1,0 +1,15 @@
+{
+  "web": {
+    "baseUrl": "http://localhost:8080/mantisbt-2.6.0/"
+  },
+  "webadmin": {
+    "username": "administrator",
+    "password": "root"
+  },
+  "db": {
+    "host": "localhost",
+    "name": "addressbook",
+    "user": "root",
+    "password": ""
+  }
+}
