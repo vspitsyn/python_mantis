@@ -7,9 +7,15 @@
     "username": "administrator",
     "password": "secret"
   },
-  "db": {
+  "db_old": {
     "host": "localhost",
     "name": "addressbook",
+    "user": "root",
+    "password": ""
+  },
+  "db": {
+    "host": "localhost",
+    "name": "bugtracker",
     "user": "root",
     "password": ""
   }
