@@ -111,6 +111,36 @@ class ProjectHelper:
 
     project_cache = None
 
+    def get_project_list(self):
+        if self.project_cache is None:
+            wd = self.app.wd
+            self.open_project_page()
+            self.project_cache = []
+            tr=wd.find_elements_by_xpath("//tr[@class='row-1' or @class='row-2']")
+            aa=wd.find_elements_by_css_selector("tr[class^='row-'")
+            #aaa = wd.find_elements_by_xpath("//tr[@class,'^(row-\d)'")
+            for element in wd.find_elements_by_xpath_xpath("tr.row-1"):
+                a=1==1
+    #         for element in wd.find_elements_by_css_selector("tr.row-1"):
+    #               #id = element.find_element_by_name("selected[]").get_attribute("value")
+    #               cells = element.find_elements_by_tag_name("td")
+    #               lastname = cells[1].text
+    #               firstname = cells[2].text
+    #               company_address = cells[3].text
+    #               all_mail = cells[4].text
+    #               all_phones = cells[5].text
+    #               #all_phones = cells[5].text.splitlines()
+    #               hash = lastname + firstname + cells[3].text + cells[4].text + cells[5].text
+    #               self.contact_cache.append(
+    #                   Contact(lastname=lastname, firstname=firstname, id=id,company_address = company_address,
+    #                           all_mail_from_home_page = all_mail, all_phones_from_home_page=all_phones, hash=hash))
+    #               #self.contact_cache.append(Contact(lastname = lastname, firstname = firstname, id = id, home_phone=all_phones[0], mobile_phone=all_phones[1], work_phone = all_phones[2], fax = all_phones[3], hash = hash))
+    # #              self.contact_cache.append(Contact(lastname=cells[2].text, firstname=cells[1].text, id=id))
+    #     return list(self.contact_cache)
+            return aa
+
+    project_cache = None
+
     def get_group_list(self):
         if self.group_cache is None:
             wd = self.app.wd
