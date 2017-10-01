@@ -2,9 +2,9 @@ from sys import maxsize
 class Project:
     def __init__(self,
                  name = None,
-                 status = None,
+                 status = "development",
                  igc = True,
-                 view_status = None,
+                 view_status = "public",
                  description = None,
                  id=None):
         self.name = name
@@ -27,5 +27,5 @@ class Project:
 
     # стандартный метод, определяющий правила сравнения объектов
     def __eq__(self, other):
-        return (self.id is None or other.id is None or self.id == other.id) and self.name == other.name
+        return (self.id is None or other.id is None or self.id == other.id) and self.name == other.name and self.status == other.status
 
