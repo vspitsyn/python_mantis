@@ -1,3 +1,4 @@
+import time
 from model.project import Project
 from model.functions import clear_double_space
 from selenium.webdriver.support.ui import Select
@@ -48,66 +49,27 @@ class ProjectHelper:
             select = Select(wd.find_element_by_xpath("//select[@name='%s']"%field_name))
             select.select_by_visible_text(text)
 
-    def delete_group_by_index(self, index):
+    def delete_project_by_id(self, id):
         wd = self.app.wd
-        self.open_groups_page()
-        self.select_group_by_index(index)
+        self.open_project_page()
+        self.select_project_by_id(id)
         # submit deletion
-        wd.find_element_by_name("delete").click()
-        self.return_to_groups_page()
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
+        time.sleep(1)
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
+        time.sleep(1)
+        #wd.find_element_by_name("delete").click()
+        self.open_project_page()
         self.group_cache = None
-
-    def delete_group_by_id(self, id):
-        wd = self.app.wd
-        self.open_groups_page()
-        self.select_group_by_id(id)
-        # submit deletion
-        wd.find_element_by_name("delete").click()
-        self.return_to_groups_page()
-        self.group_cache = None
-
-
-    def edit_group_by_index(self, index,group):
-        wd = self.app.wd
-        self.open_groups_page()
-        self.select_group_by_index(index)
-        # open modification form
-        wd.find_element_by_name("edit").click()
-        self.fill_group_form(group)
-        # submit edition
-        wd.find_element_by_name("update").click()
-        self.return_to_groups_page()
-        self.group_cache = None
-
-    # def edit_group_by_id(self, id, group):
-    #     wd = self.app.wd
-    #     self.open_groups_page()
-    #     self.select_group_by_id(id)
-    #     # open modification form
-    #     wd.find_element_by_name("edit").click()
-    #     self.fill_group_form(group)
-    #     # submit edition
-    #     wd.find_element_by_name("update").click()
-    #     self.return_to_groups_page()
-    #     self.group_cache = None
-
-    # def select_group_by_index(self,index):
-    #     wd = self.app.wd
-    #     wd.find_elements_by_name("selected[]")[index].click()
 
     def select_project_by_id(self,id):
         wd = self.app.wd
         wd.find_element_by_xpath("//a[contains(@href,'?project_id=%s')]"%id).click()
 
-
-    # def return_to_groups_page(self):
-    #     wd = self.app.wd
-    #     wd.find_element_by_link_text("group page").click()
-
-    #def count(self):
-    #    wd = self.app.wd
-    #    self.open_groups_page()
-    #    return len(wd.find_elements_by_name("selected[]"))
+    def count(self):
+        wd = self.app.wd
+        self.open_groups_page()
+        return len(wd.find_elements_by_xpath("//a[contains(@href,'?project_id')]"))
 
     project_cache = None
 
