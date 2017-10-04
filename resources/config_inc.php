@@ -1,0 +1,21 @@
+<?php
+$g_hostname = 'localhost';
+$g_db_type = 'mysql';
+$g_database_name = 'bugtracker';
+$g_db_username = 'root';
+$g_db_password = '';
+$g_use_captcha = OFF;
+$g_enable_email_notification = ON;
+$g_phpMailer_method = 2; # цифра 2 будет вызывать метод PHPMAILER_METHOD_SMTP
+$g_smtp_host = 'smtp.yandex.ru'; # хост яндекса, принимающий почту
+$g_smtp_username = 'vajor@yandex.ru'; #обязательно указываем полное имя ящика с доменным суффиксом
+$g_smtp_password = 'oooo6212y'; #пароль к почтовому ящику
+#$g_smtp_connection_mode = ''; #если не указывать режим соединения то будет обычный SMTP метод. Можно указать значение ssl
+#$g_smtp_port = '';  #если не указывать значение порта, то по умолчанию 25 порт. Если используем режим ssl то нужно указать 465 порт
+$g_administrator_email = 'vajor@yandex.ru';  #ящик который будет светиться с контактами администратора инстанса mantis
+$g_webmaster_email = 'vajor@yandex.ru';  #ящик который будет светиться с контактами вебмастера инстанса mantis
+$g_from_email = 'vajor@yandex.ru';  #то что будет в поле "From: "
+$g_return_path_email = 'vajor@yandex.ru';  #ящик который в который будут падать возвраты писем
+#$g_log_level = LOG_EMAIL | LOG_EMAIL_RECIPIENT | LOG_DATABASE; #стоит включить логирование, чтобы видеть что происходит с мантисом
+#$g_log_destination = 'file:/usr/local/www/mantis/logs/mantisbt.log'; # путь куда складываем логи mantis
+$g_from_name = 'Mantis Bug Tracker'; # символическое имя в поле "From: "
