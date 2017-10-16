@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from model.project import Project
 import random
 
 def test_delete_some_project(app,db,check_ui):
     if len(db.get_project_list()) == 0:
-        app.project.create(Project(name="New project 01", status="stable", igc=False, view_status = "private", description = "Test 001"))
+        app.project.create(Project(name="New project 001", status="stable", igc=False, view_status = "private", description = "Test 001"))
     old_projects  = db.get_project_list()
     project = random.choice(old_projects)
     app.project.delete_project_by_id(project.id)
