@@ -6,7 +6,7 @@ from fixture.project import ProjectHelper
 
 class Application:
     #def __init__(self, browser = "firefox"):
-    def __init__(self, browser, base_url):
+    def __init__(self, browser, config):
                 #self.wd = WebDriver(capabilities={"marionette": False})
         if browser == "firefox":
             self.wd = webdriver.Firefox(capabilities={"marionette": False})
@@ -20,7 +20,7 @@ class Application:
         self.session = SessionHelper(self)
         self.james = JamesHelper(self)
         self.project = ProjectHelper(self)
-        self.base_url = base_url
+        self.base_url = config['web']['baseUrl']
 
     def is_valid(self):
         try:

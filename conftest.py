@@ -24,6 +24,8 @@ def load_config(file):
 def config(request):
     return load_config(request.config.getoption("--target"))
 
+
+
 #@pytest.fixture(scope = "session")
 @pytest.fixture
 def app(request, config):
@@ -32,7 +34,7 @@ def app(request, config):
     logadmin_config = load_config(request.config.getoption("--target"))['webadmin']
  #   base_url = request.config.getoption("--baseURL")
     if fixture is None or not fixture.is_valid():
-        fixture = Application(browser = browser, base_url = config['web']['baseUrl'])
+        fixture = Application(browser = browser, config = config)
     fixture.session.ensure_login(username=logadmin_config['username'], password=logadmin_config['password'])
     return fixture
 
