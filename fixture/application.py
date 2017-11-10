@@ -20,6 +20,7 @@ class Application:
         self.session = SessionHelper(self)
         self.james = JamesHelper(self)
         self.project = ProjectHelper(self)
+        self.config = config
         self.base_url = config['web']['baseUrl']
 
     def is_valid(self):
